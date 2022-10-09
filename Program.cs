@@ -2,27 +2,28 @@
 {
     public class Program
     {
-        // Definiendo la variable de tipos long, string e int.
-        public static long? toSum;
-        public static string? sumString;
-        public static int total = 0;
-        static void Main()
+        public static void Main(string[] args)
         {
-            // Despliegue de log y obtencion de data.
-            Console.WriteLine("Por favor indique el tamaño de uno de los lados del cuadrado.");
-            toSum = long.Parse(Console.ReadLine());
-            // Invocamos la funcion que calcula la entrada por consola
-            operation();
-            Console.WriteLine("El total de " + toSum + " es " + total);
+            // Solicitamos los los caracteres a desplegar y el tamaño del triangulo
+            Console.WriteLine("Ingrese una letra o caracter a desplegar");
+            string x = Console.ReadLine();
+            Console.WriteLine("Ingrese el tamaño del triangulo");
+            int ancho = Convert.ToInt32(Console.ReadLine());
+            int alto = ancho;
+            drawing(alto, x);
         }
-        // Definicion de la funcion
-        static void operation() {
-            // Primero convertimos en string el parametro entrante para que lo podamos leer en un ciclo.
-            sumString = toSum.ToString();
-            // Creamos el ciclo para ir leyendo caracter por caracter e ir sumandolo uno a uno con la iteracion anterior.
-            for (int i = 0; i < sumString.Length; i++)
+        // Defino la funcion que crea el triangulo
+        static void drawing(int times, string character) {
+            // dibujo de cada linea (bucle externo)
+            for (int fila=1; fila <= times; fila ++)
             {
-                total = int.Parse(sumString.Substring(i,1)) + total;
+                //dibuja espacios en blanco (1er bucle interno)
+                for (int espacios = times - fila; espacios > 0; espacios--)
+                    Console.Write(" "); // espai en blanco
+                    // dibuja estrellas (2º bucle interno)
+                for (int conta = 1; conta < (2 * fila); conta++)
+                    Console.Write(character);
+                    Console.WriteLine(" ");
             }
         }
     }
