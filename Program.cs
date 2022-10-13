@@ -1,26 +1,23 @@
-﻿namespace HelloWorld
+﻿using System;
+
+namespace App
 {
-    public class Program
+    class Programa
     {
-        // Definiendo la variable de tipo string.
-        public static int? square;
-        public static int? area;
-        public static int? perimeter;
         static void Main()
         {
-            // Despliegue de log y obtencion de data.
-            Console.WriteLine("Por favor indique el tamaño de uno de los lados del cuadrado.");
-            square = int.Parse(Console.ReadLine());
-            // Invoca la funcion, y esta devuelve tanto perimetro y superficie.
-            getAreaAndPerimeter(square);
-            // Respuesta del programa.
-            Console.WriteLine("El perimetro es " + perimeter);
-            Console.WriteLine("La superficie es " + area + "²");
-        }
-        // Definicion de la funcion
-        static void getAreaAndPerimeter(int? info) {
-            perimeter = info * 4;
-            area = info * info;
+            // Enseñamos en pantalla el siguiente mensaje:
+            Console.WriteLine("Introduce una palabra.");
+            // Solicitamos el ingreso del string a solicitar
+            string word = Console.ReadLine();
+            // Solicitamos el ingreso de la letra a buscar
+            Console.WriteLine("Introduce una letra a buscar.");
+            string character = Console.ReadLine();
+            // Contamos las letras y llevamos un registro de coincidencias de caracteres
+            // De tal manera que cada vez que "X" sea igual a "character", lleve el contador de
+            // coincidencias.
+            var count = word.Count(x => Char.ToString(x) == character);
+            Console.WriteLine("La palabra se repite " + count + " veces");
         }
     }
 }
