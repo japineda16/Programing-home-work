@@ -13,8 +13,12 @@ namespace App
             // Solicitamos el ingreso de la letra a buscar
             Console.WriteLine("Introduce una letra a buscar.");
             string character = Console.ReadLine();
+            int count = wordFinder(word, character);
+            Console.WriteLine("La palabra se repite " + count + " veces");
+        }
+        public static int wordFinder(string word, string character) {
             // Contamos las letras y llevamos un registro de coincidencias de caracteres
-            // De tal manera que cada vez que "X" sea igual a "character", lleve el contador de
+            // De tal manera que cada vez que "c" sea igual a "character", lleve el contador de
             // coincidencias.
             int count = 0;
             foreach (var c in word)
@@ -23,7 +27,7 @@ namespace App
                     count++;
                 }
             }
-            Console.WriteLine("La palabra se repite " + count + " veces");
+            return count;
         }
     }
 }
