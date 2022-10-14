@@ -16,7 +16,13 @@ namespace App
             // Contamos las letras y llevamos un registro de coincidencias de caracteres
             // De tal manera que cada vez que "X" sea igual a "character", lleve el contador de
             // coincidencias.
-            var count = word.Count(x => Char.ToString(x) == character);
+            int count = 0;
+            foreach (var c in word)
+            {
+                if (Char.ToString(c) == character) {
+                    count++;
+                }
+            }
             Console.WriteLine("La palabra se repite " + count + " veces");
         }
     }
